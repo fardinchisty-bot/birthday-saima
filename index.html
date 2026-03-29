@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Saima!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;700&display=swap');
+
+        body {
+            background-color: #F5F5DC; /* Off-white */
+            color: #006400; /* Dark Green */
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            display: flex; /* Use flexbox for vertical alignment */
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh; /* Ensure it takes full viewport height */
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 800px; /* Limit content width for better readability */
+            width: 100%;
+            box-sizing: border-box; /* Include padding in width */
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 5rem;
+            margin-bottom: 20px;
+        }
+
+        .interactive-section {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 40px; /* Space out cake and candle */
+        }
+
+        .interactive-section img {
+            width: 150px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .interactive-section img:hover {
+            transform: scale(1.1);
+        }
+
+        .cake-container, .candle-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        button {
+            background-color: #006400; /* Dark Green */
+            color: #F5F5DC; /* Off-white */
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #004d00; /* Darker green on hover */
+        }
+
+        .music-player button {
+            font-size: 1.2rem;
+            padding: 10px;
+        }
+
+        .message {
+            font-size: 1.2rem; /* Slightly smaller for readability of longer text */
+            margin-top: 30px;
+            text-align: left; /* Align text to the left for a letter format */
+            line-height: 1.6;
+            background-color: rgba(255, 255, 255, 0.7); /* Slight background for readability */
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .message p {
+            margin-bottom: 15px;
+        }
+        .message .signature {
+            text-align: right; /* Align signature to the right */
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            margin-top: 20px;
+        }
+
+
+        .from {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            margin-top: 20px;
+        }
+
+        .balloon {
+            position: absolute;
+            width: 50px;
+            height: 60px;
+            background-color: #006400; /* Dark Green */
+            border-radius: 50%;
+            bottom: -100px; /* Start below the screen */
+            animation: float 10s infinite ease-in-out;
+            opacity: 0.8;
+            box-shadow: inset -5px -5px 10px rgba(0,0,0,0.2);
+        }
+        .balloon::before {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 20px;
+            background-color: #006400;
+        }
+
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translateY(-50vh) scale(1.05);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) scale(1);
+                opacity: 0;
+            }
+        }
+
+        .flower {
+            position: absolute;
+            top: -50px;
+            font-size: 2rem;
+            animation: fall 8s linear infinite;
+            pointer-events: none; /* Prevent interaction with falling elements */
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotateZ(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotateZ(720deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Birthday My Dearest Saima!</h1>
+
+        <div class="interactive-section">
+            <div class="cake-container">
+                <img id="cake" src="https://i.imgur.com/o6Z8ZbR.png" alt="Birthday Cake" onclick="cutCake()">
+                <p>Click the cake to cut it!</p>
+            </div>
+            <div class="candle-container">
+                <img id="candle" src="https://i.imgur.com/fO200rT.png" alt="Candle" onclick="blowCandle()">
+                <p>Click the candle to blow it out!</p>
+            </div>
+        </div>
+
+        <div class="music-player">
+            <p>Listen to a special song for you!</p>
+            <audio id="birthday-song" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
+            <button onclick="toggleMusic()">&#9658; / &#10074;&#10074;</button>
+        </div>
+
+        <div class="message">
+            <p style="text-align: center; font-size: 1.5rem; font-family: 'Great Vibes', cursive;">A Letter for My Dearest Saima,</p>
+            <p>Happy Birthday!</p>
+            <p>On your special day, I was trying to find the perfect words to tell you how much you mean to me, but honestly, words feel too small. How can I describe the way your smile instantly brightens up my day, or how the sound of your laugh is my new favorite song?</p>
+            <p>They say some people make the world a better place just by being in it, and you, Saima, are one of those people. You have a kindness that is so rare and a way of looking at the world that makes everything seem more beautiful.</p>
+            <p>I hope today is filled with as much joy, love, and happiness as you bring into my life every single day. You deserve all the wonderful things the world has to offer, today and always.</p>
+            <p>I’m thinking of you and sending you all my love. Can’t wait to celebrate with you.</p>
+            <p class="signature">With all my heart,<br>Fardin Intesar</p>
+        </div>
+
+    </div>
+
+    <script>
+        function cutCake() {
+            const cakeImg = document.getElementById('cake');
+            cakeImg.src = 'https://i.imgur.com/c4Y7t7b.png'; // Sliced cake image
+            alert('Yummy! The cake is delicious!');
+        }
+
+        function blowCandle() {
+            const candleImg = document.getElementById('candle');
+            candleImg.style.display = 'none'; // Hide the candle
+            alert('Make a wish!');
+        }
+
+        const birthdaySong = document.getElementById('birthday-song');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                birthdaySong.pause();
+            } else {
+                birthdaySong.play();
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // Balloon and Flower animations
+        function createBalloons() {
+            for (let i = 0; i < 15; i++) { // Increased number of balloons
+                const balloon = document.createElement('div');
+                balloon.className = 'balloon';
+                balloon.style.left = Math.random() * 90 + 5 + 'vw'; // Random position across screen
+                balloon.style.animationDelay = Math.random() * 10 + 's'; // Staggered delays
+                balloon.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 50%)`; // Random colors
+                document.body.appendChild(balloon);
+            }
+        }
+
+        function createFlowers() {
+            const flowers = ['🌸', '🌹', '🌷', '🌺', '🌼', '💖', '✨']; // Added more cute elements
+            for (let i = 0; i < 30; i++) { // Increased number of flowers
+                const flower = document.createElement('div');
+                flower.className = 'flower';
+                flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
+                flower.style.left = Math.random() * 100 + 'vw';
+                flower.style.animationDelay = Math.random() * 8 + 's';
+                flower.style.fontSize = Math.random() * 1.5 + 1 + 'rem';
+                flower.style.opacity = Math.random() * 0.5 + 0.5; // Random opacity
+                document.body.appendChild(flower);
+            }
+        }
+
+        createBalloons();
+        createFlowers();
+    </script>
+</body>
+</html>
